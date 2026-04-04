@@ -1,6 +1,6 @@
 export type ProductCategory = "men" | "women" | "kids" | "accessories";
 
-export type ProductCondition = "new" | "like_new" | "good" | "fair";
+export type ProductCondition = "new" | "like_new" | "good" | "acceptable";
 
 export interface Product {
   id: string;
@@ -15,6 +15,8 @@ export interface Product {
   images: string[];
   sellerId: string;
   createdAt: string;
+  /** Seller city / wilaya (SRS listings.location). */
+  location: string;
 }
 
 export interface UserProfile {
@@ -53,4 +55,9 @@ export interface Conversation {
   lastMessage: string;
   lastMessageAt: string;
   unread: number;
+  /** Linked listing for context (SRS FR-04.2). */
+  listingId?: string;
+  listingTitle?: string;
+  listingImage?: string;
+  listingPrice?: number;
 }

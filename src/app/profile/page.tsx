@@ -15,7 +15,7 @@ export default function ProfilePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-sm">
-        <div className="h-28 bg-gradient-to-r from-teal-100/80 via-stone-100 to-amber-50 sm:h-36" />
+        <div className="h-28 bg-gradient-to-r from-green-100/90 via-stone-100 to-amber-50/80 sm:h-36" />
         <div className="relative px-6 pb-8 sm:px-10">
           <div className="-mt-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6">
@@ -33,7 +33,7 @@ export default function ProfilePage() {
             </div>
             <Link
               href="/sell"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-cta px-6 text-sm font-medium text-white transition-colors hover:bg-cta-hover"
             >
               New listing
             </Link>

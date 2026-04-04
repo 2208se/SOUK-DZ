@@ -25,7 +25,7 @@ export function ConversationList({ items, selectedId, onSelect }: Props) {
               type="button"
               onClick={() => onSelect(c.id)}
               className={`flex w-full gap-3 px-4 py-3 text-left transition-colors ${
-                active ? "bg-teal-50/80" : "hover:bg-stone-50"
+                active ? "bg-[var(--va-mint-subtle)]/95" : "hover:bg-stone-50"
               }`}
             >
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-stone-200">
@@ -36,6 +36,9 @@ export function ConversationList({ items, selectedId, onSelect }: Props) {
                   <span className="truncate font-medium text-stone-900">{c.peerName}</span>
                   <span className="shrink-0 text-xs text-muted">{formatTime(c.lastMessageAt)}</span>
                 </div>
+                {c.listingTitle ? (
+                  <p className="truncate text-xs text-accent">{c.listingTitle}</p>
+                ) : null}
                 <p className="truncate text-sm text-muted">{c.lastMessage}</p>
               </div>
               {c.unread > 0 ? (

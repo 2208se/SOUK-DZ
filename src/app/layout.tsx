@@ -1,20 +1,25 @@
-import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Nunito } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { SiteFooter } from "@/components/layout/footer";
+import { AppProviders } from "@/components/providers/app-providers";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#2e7d32",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -33,12 +38,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
+      className={`${inter.variable} ${nunito.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+      {/* suppressHydrationWarning: extensions (e.g. ColorZilla) may inject attrs on <body> */}
+      <body
+        className="flex min-h-full flex-col bg-background font-sans text-foreground"
+        suppressHydrationWarning
+      >
+        <AppProviders>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </AppProviders>
       </body>
     </html>
   );

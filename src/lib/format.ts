@@ -14,10 +14,10 @@ export function formatPrice(amount: number, currency: string): string {
 }
 
 export const conditionLabels: Record<string, string> = {
-  new: "New with tags",
+  new: "New",
   like_new: "Like new",
   good: "Good",
-  fair: "Fair",
+  acceptable: "Acceptable",
 };
 
 export const categoryLabels: Record<string, string> = {

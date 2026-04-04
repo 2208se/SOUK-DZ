@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { LogoLink } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Modal } from "@/components/ui/modal";
@@ -29,7 +30,7 @@ export function Navbar() {
       <Link
         href={href}
         className={`text-sm font-medium transition-colors ${
-          active ? "text-accent" : "text-stone-600 hover:text-stone-900"
+          active ? "text-[var(--va-primary)]" : "text-[var(--va-ink-muted)] hover:text-[var(--va-ink)]"
         }`}
         onClick={() => setMobileOpen(false)}
       >
@@ -40,14 +41,9 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-border/80 bg-surface/90 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
-          <Link
-            href="/"
-            className="shrink-0 font-display text-lg tracking-tight text-stone-900 transition-opacity hover:opacity-80"
-          >
-            Vinted Algeria
-          </Link>
+      <header className="sticky top-0 z-40 border-b border-[var(--va-border)] bg-[color-mix(in_srgb,var(--va-surface)_88%,transparent)] shadow-[0_1px_0_0_rgba(46,125,50,0.07)] backdrop-blur-md">
+        <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
+          <LogoLink className="min-w-0 shrink" />
 
           <form
             onSubmit={onSearch}

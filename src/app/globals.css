@@ -1,14 +1,40 @@
 @import "tailwindcss";
 
+/**
+ * Vinted Algeria — design tokens
+ * Primary palette aligned with brand SRS (deep green, light green, amber CTA).
+ */
 :root {
-  --background: #f7f6f3;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --surface: #ffffff;
-  --border: #e7e5e4;
-  --accent: #0f766e;
-  --accent-hover: #0d9488;
-  --ring: #99f6e4;
+  --va-ink: #1a2f22;
+  --va-ink-muted: #3d5247;
+  --va-bg: #f0f5f1;
+  --va-bg-warm: #f7f3ed;
+  --va-surface: #ffffff;
+  --va-border: #d4e0d6;
+  --va-border-strong: #b8d4be;
+  --va-primary: #2e7d32;
+  --va-primary-deep: #1b5e20;
+  --va-primary-soft: #81c784;
+  --va-mint: #c8e6c9;
+  --va-mint-subtle: #e8f5e9;
+  --va-amber: #ff8f00;
+  --va-amber-hover: #f57c00;
+  --va-amber-glow: rgba(255, 143, 0, 0.22);
+  --va-footer: #142920;
+  --va-footer-border: #1f3d2d;
+  --va-ring: rgba(46, 125, 50, 0.4);
+
+  --background: var(--va-bg);
+  --foreground: var(--va-ink);
+  --muted: var(--va-ink-muted);
+  --surface: var(--va-surface);
+  --border: var(--va-border);
+  --primary: var(--va-primary);
+  --primary-hover: var(--va-primary-deep);
+  --secondary-green: var(--va-primary-soft);
+  --cta: var(--va-amber);
+  --cta-hover: var(--va-amber-hover);
+  --ring: var(--va-ring);
 }
 
 @theme inline {
@@ -17,23 +43,74 @@
   --color-muted: var(--muted);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-accent: var(--primary);
+  --color-accent-hover: var(--primary-hover);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-secondary-green: var(--secondary-green);
   --color-ring: var(--ring);
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-va-mint-subtle: var(--va-mint-subtle);
+  --color-va-footer: var(--va-footer);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Page backdrop: soft brand tint + subtle texture */
 body {
-  background: var(--background);
+  background-color: var(--va-bg);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 100% -20%, rgba(129, 199, 132, 0.18), transparent 50%),
+    radial-gradient(ellipse 80% 60% at 0% 100%, rgba(255, 143, 0, 0.06), transparent 45%);
   color: var(--foreground);
 }
 
 .font-display {
-  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--va-primary);
   outline-offset: 2px;
+}
+
+/* Hero / marketing sections */
+.va-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(165deg, var(--va-surface) 0%, var(--va-mint-subtle) 42%, var(--va-bg-warm) 100%);
+  border-color: var(--va-border);
+}
+
+.va-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.va-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.va-section-band {
+  background: linear-gradient(90deg, var(--va-mint-subtle) 0%, var(--va-surface) 35%, var(--va-surface) 65%, var(--va-bg-warm) 100%);
+  border-top: 1px solid var(--va-border);
+  border-bottom: 1px solid var(--va-border);
+}
+
+.va-card-brand {
+  box-shadow:
+    0 1px 2px rgba(26, 47, 34, 0.04),
+    0 4px 24px rgba(46, 125, 50, 0.06);
+}
+
+.va-price-tag {
+  background: linear-gradient(135deg, var(--va-amber) 0%, #ffb74d 100%);
+  color: #1a0e00;
 }

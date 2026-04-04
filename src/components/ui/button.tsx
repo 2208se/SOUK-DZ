@@ -4,12 +4,13 @@ type Variant = "primary" | "secondary" | "outline" | "ghost";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent text-white shadow-sm hover:bg-accent-hover active:scale-[0.98]",
+    "bg-cta text-white shadow-[0_2px_14px_rgba(255,143,0,0.35)] hover:bg-cta-hover hover:shadow-[0_4px_18px_rgba(255,143,0,0.4)] active:scale-[0.98]",
   secondary:
-    "bg-stone-900 text-white shadow-sm hover:bg-stone-800 active:scale-[0.98]",
+    "bg-[var(--va-primary)] text-white shadow-[0_2px_12px_rgba(46,125,50,0.25)] hover:bg-[var(--va-primary-deep)] active:scale-[0.98]",
   outline:
-    "border border-border bg-surface text-foreground hover:bg-stone-50 active:scale-[0.98]",
-  ghost: "text-foreground hover:bg-stone-100/80 active:scale-[0.98]",
+    "border-2 border-[var(--va-border-strong)] bg-surface text-[var(--va-ink)] hover:border-[var(--va-primary)]/35 hover:bg-[var(--va-mint-subtle)] active:scale-[0.98]",
+  ghost:
+    "text-[var(--va-ink-muted)] hover:bg-[var(--va-mint-subtle)] hover:text-[var(--va-ink)] active:scale-[0.98]",
 };
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {

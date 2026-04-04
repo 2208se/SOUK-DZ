@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PriceSuggest } from "@/components/product/price-suggest";
 import { ProductActions } from "@/components/product/product-actions";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { categoryLabels, conditionLabels, formatPrice } from "@/lib/format";
@@ -43,7 +45,7 @@ export default async function ProductPage({ params }: Props) {
           <h1 className="mt-1 font-display text-3xl tracking-tight text-stone-900 sm:text-4xl">
             {product.title}
           </h1>
-          <p className="mt-4 text-3xl font-semibold text-stone-900">
+          <p className="mt-4 inline-flex items-baseline gap-2 rounded-2xl border border-[var(--va-border-strong)] bg-[var(--va-mint-subtle)] px-4 py-2.5 font-display text-3xl font-extrabold tracking-tight text-[var(--va-primary-deep)] shadow-sm">
             {formatPrice(product.price, product.currency)}
           </p>
 
@@ -56,6 +58,9 @@ export default async function ProductPage({ params }: Props) {
             </li>
             <li className="rounded-full bg-stone-100 px-3 py-1 text-stone-700">
               {categoryLabels[product.category]}
+            </li>
+            <li className="rounded-full bg-stone-100 px-3 py-1 text-stone-700">
+              {product.location}
             </li>
           </ul>
 
@@ -77,10 +82,9 @@ export default async function ProductPage({ params }: Props) {
                 href="/profile"
                 className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 transition-shadow hover:shadow-md"
               >
-                <div
-                  className="h-12 w-12 shrink-0 rounded-full bg-stone-200 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${seller.avatar})` }}
-                />
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-stone-200">
+                  <Image src={seller.avatar} alt="" fill className="object-cover" sizes="48px" />
+                </div>
                 <div>
                   <p className="font-medium text-stone-900">{seller.name}</p>
                   <p className="text-sm text-muted">
@@ -93,7 +97,15 @@ export default async function ProductPage({ params }: Props) {
             )}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8">
+            <PriceSuggest
+              listPrice={product.price}
+              currency={product.currency}
+              productTitle={product.title}
+            />
+          </div>
+
+          <div className="mt-8">
             <ProductActions productId={product.id} />
           </div>
         </div>

@@ -70,17 +70,27 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="border-b border-border bg-gradient-to-b from-white to-background">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:flex-row lg:items-center lg:gap-16">
+      <section className="va-hero relative border-b border-[var(--va-border)]">
+        <div
+          className="va-hero-blob -right-24 top-0 h-72 w-72 bg-[var(--va-primary-soft)]/30 sm:right-0"
+          aria-hidden
+        />
+        <div
+          className="va-hero-blob -left-32 bottom-0 h-64 w-64 bg-[var(--va-amber)]/15 sm:left-0"
+          aria-hidden
+        />
+        <div className="relative z-[1] mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:flex-row lg:items-center lg:gap-16">
           <div className="flex-1">
-            <p className="text-sm font-medium uppercase tracking-wider text-accent">
-              Algeria · Pre-loved fashion
+            <p className="inline-flex items-center gap-2 rounded-full border border-[var(--va-border-strong)] bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--va-primary-deep)] shadow-sm backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--va-amber)]" aria-hidden />
+              Algeria · Second-hand fashion
             </p>
-            <h1 className="mt-3 font-display text-4xl leading-tight tracking-tight text-stone-900 sm:text-5xl lg:text-[3.25rem]">
-              Your closet&apos;s next chapter starts here.
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-[var(--va-ink)] sm:text-5xl lg:text-[3.35rem]">
+              Your circular closet,{" "}
+              <span className="text-[var(--va-primary)]">made in DZ</span>.
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-muted leading-relaxed">
-              Buy and sell second-hand clothes with clarity: honest condition labels, direct chat, and listings tuned for local buyers.
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-[var(--va-ink-muted)]">
+              Buy and sell pre-loved clothes with clear condition labels, direct chat, and sellers near you — a Vinted-style experience built for Algeria.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link href="/sell">
@@ -92,23 +102,24 @@ export default function HomePage() {
                 </Button>
               </Link>
             </div>
-            <p className="mt-6 text-xs text-muted">
-              Demo experience — no payments or accounts are processed.
+            <p className="mt-6 text-xs text-[var(--va-ink-muted)]">
+              Demo — no real payments or accounts.
             </p>
           </div>
           <div className="relative flex-1 lg:max-w-md">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-stone-200 shadow-lg">
+            <div className="absolute -inset-1 rounded-[1.35rem] bg-gradient-to-br from-[var(--va-primary)]/25 via-transparent to-[var(--va-amber)]/20 blur-sm" aria-hidden />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border-2 border-[var(--va-border-strong)] bg-stone-200 shadow-[0_20px_50px_rgba(26,47,34,0.12)] ring-2 ring-[var(--va-primary)]/10">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url(https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=80)",
+                    "url(https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80)",
                 }}
               />
             </div>
-            <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-border bg-surface px-4 py-3 shadow-md sm:block">
-              <p className="text-xs text-muted">From campus fits to office staples</p>
-              <p className="text-sm font-semibold text-stone-900">Curated for real life</p>
+            <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-[var(--va-border-strong)] bg-surface/95 px-4 py-3 shadow-[0_12px_40px_rgba(46,125,50,0.12)] backdrop-blur-sm sm:block">
+              <p className="text-xs font-medium text-[var(--va-primary)]">Sweet prices · Cool planet</p>
+              <p className="text-sm font-semibold text-[var(--va-ink)]">Students &amp; pros, well dressed</p>
             </div>
           </div>
         </div>
@@ -117,8 +128,13 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h2 className="font-display text-2xl text-stone-900 sm:text-3xl">Featured picks</h2>
-            <p className="mt-2 text-sm text-muted">Fresh listings from our mock catalog.</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--va-primary)]">
+              Vinted Algeria picks
+            </p>
+            <h2 className="mt-1 font-display text-2xl font-bold text-[var(--va-ink)] sm:text-3xl">
+              Featured picks
+            </h2>
+            <p className="mt-2 text-sm text-[var(--va-ink-muted)]">Highlights from our demo catalog.</p>
           </div>
           <Link
             href="/marketplace"
@@ -134,11 +150,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface py-16">
+      <section className="va-section-band py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-stone-900 sm:text-3xl">Shop by category</h2>
-          <p className="mt-2 max-w-xl text-sm text-muted">
-            Jump into what you need — filters on the marketplace refine further.
+          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--va-primary)]">
+            Browse
+          </p>
+          <h2 className="mt-1 font-display text-2xl font-bold text-[var(--va-ink)] sm:text-3xl">
+            Shop by category
+          </h2>
+          <p className="mt-2 max-w-xl text-sm text-[var(--va-ink-muted)]">
+            Refine on the marketplace by size, brand, city, and price.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((c) => (
@@ -149,18 +170,23 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="font-display text-2xl text-stone-900 sm:text-3xl">Why people use Vinted Algeria</h2>
+        <p className="text-xs font-semibold uppercase tracking-wider text-[var(--va-primary)]">
+          Why choose us
+        </p>
+        <h2 className="mt-1 font-display text-2xl font-bold text-[var(--va-ink)] sm:text-3xl">
+          The Vinted Algeria community
+        </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
             <div
               key={b.title}
-              className="rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="va-card-brand rounded-2xl border border-[var(--va-border)] bg-surface p-6 transition-all duration-300 hover:border-[var(--va-primary)]/25 hover:shadow-[0_12px_40px_rgba(46,125,50,0.1)]"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-accent">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--va-mint-subtle)] text-[var(--va-primary)]">
                 {b.icon}
               </div>
-              <h3 className="mt-4 font-display text-lg text-stone-900">{b.title}</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">{b.body}</p>
+              <h3 className="mt-4 font-display text-lg font-bold text-[var(--va-ink)]">{b.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--va-ink-muted)]">{b.body}</p>
             </div>
           ))}
         </div>

@@ -59,6 +59,7 @@ export const mockProducts: Product[] = [
       img("photo-1515372039744-b8f02a3ae446"),
     ],
     sellerId: "u1",
+    location: "Algiers",
     createdAt: "2026-03-28T10:00:00Z",
   },
   {
@@ -74,6 +75,7 @@ export const mockProducts: Product[] = [
     category: "men",
     images: [img("photo-1576995853123-5a10305d93c0")],
     sellerId: "u2",
+    location: "Oran",
     createdAt: "2026-03-25T14:30:00Z",
   },
   {
@@ -89,6 +91,7 @@ export const mockProducts: Product[] = [
     category: "women",
     images: [img("photo-1576566588028-4147f3842f27")],
     sellerId: "u3",
+    location: "Constantine",
     createdAt: "2026-03-22T09:15:00Z",
   },
   {
@@ -104,6 +107,7 @@ export const mockProducts: Product[] = [
     category: "kids",
     images: [img("photo-1519238268790-75b65e03388d")],
     sellerId: "u1",
+    location: "Algiers",
     createdAt: "2026-03-20T16:00:00Z",
   },
   {
@@ -115,10 +119,11 @@ export const mockProducts: Product[] = [
     currency: "DZD",
     size: "One size",
     brand: "Mango",
-    condition: "good",
+    condition: "acceptable",
     category: "accessories",
     images: [img("photo-1548036328-c9fa89d128fa")],
     sellerId: "u2",
+    location: "Oran",
     createdAt: "2026-03-18T11:45:00Z",
   },
   {
@@ -134,6 +139,7 @@ export const mockProducts: Product[] = [
     category: "women",
     images: [img("photo-1594938298603-c8148c4dae35")],
     sellerId: "u3",
+    location: "Constantine",
     createdAt: "2026-03-15T08:20:00Z",
   },
   {
@@ -149,6 +155,7 @@ export const mockProducts: Product[] = [
     category: "men",
     images: [img("photo-1542291026-7eec264c27ff")],
     sellerId: "u1",
+    location: "Algiers",
     createdAt: "2026-03-12T19:00:00Z",
   },
   {
@@ -164,6 +171,7 @@ export const mockProducts: Product[] = [
     category: "accessories",
     images: [img("photo-1584917865442-de89df76afd3")],
     sellerId: "u3",
+    location: "Sétif",
     createdAt: "2026-03-10T12:00:00Z",
   },
 ];
@@ -204,6 +212,10 @@ export const mockConversations: Conversation[] = [
     lastMessage: "Can you hold until Friday?",
     lastMessageAt: "2026-04-04T09:12:00Z",
     unread: 1,
+    listingId: "p2",
+    listingTitle: "Vintage denim jacket",
+    listingImage: mockProducts[1].images[0],
+    listingPrice: mockProducts[1].price,
   },
   {
     id: "c2",
@@ -213,6 +225,10 @@ export const mockConversations: Conversation[] = [
     lastMessage: "Thanks — sent via Yalidine.",
     lastMessageAt: "2026-04-03T18:40:00Z",
     unread: 0,
+    listingId: "p3",
+    listingTitle: "Merino crewneck — oatmeal",
+    listingImage: mockProducts[2].images[0],
+    listingPrice: mockProducts[2].price,
   },
 ];
 

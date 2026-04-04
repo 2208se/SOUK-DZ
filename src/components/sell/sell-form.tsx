@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { SelectField } from "@/components/ui/select-field";
 import { Textarea } from "@/components/ui/textarea";
 import { categoryLabels, conditionLabels } from "@/lib/format";
+import { LISTING_LOCATIONS } from "@/lib/wilayas";
 import type { ProductCategory, ProductCondition } from "@/types";
 
 type Preview = { url: string; name: string };
@@ -22,6 +23,7 @@ export function SellForm() {
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState<ProductCategory>("women");
   const [condition, setCondition] = useState<ProductCondition>("good");
+  const [location, setLocation] = useState<string>(LISTING_LOCATIONS[0]);
   const [submitted, setSubmitted] = useState(false);
 
   const onFiles = useCallback((files: FileList | null) => {
@@ -45,7 +47,9 @@ export function SellForm() {
     <form onSubmit={onSubmit} className="mt-10 flex flex-col gap-8">
       <div>
         <p className="text-sm font-medium text-stone-700">Photos</p>
-        <p className="mt-1 text-xs text-muted">Up to 5 images — mock upload for preview.</p>
+        <p className="mt-1 text-xs text-muted">
+          SRS: up to 10 photos — this demo accepts a few images for preview.
+        </p>
         <label className="mt-3 flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-border bg-surface py-10 transition-colors hover:border-stone-300">
           <input
             type="file"
@@ -136,8 +140,20 @@ export function SellForm() {
         </SelectField>
       </div>
 
+      <SelectField
+        label="Location (city / wilaya)"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+      >
+        {LISTING_LOCATIONS.map((loc) => (
+          <option key={loc} value={loc}>
+            {loc}
+          </option>
+        ))}
+      </SelectField>
+
       {submitted ? (
-        <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-accent">
+        <p className="rounded-xl bg-green-50 px-4 py-3 text-sm text-accent">
           Listing saved locally (demo). Redirecting to marketplace…
         </p>
       ) : null}

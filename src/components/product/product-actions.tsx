@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useFavorites } from "@/hooks/use-favorites";
+import { useFavorites } from "@/components/providers/favorites-context";
 import { Button } from "@/components/ui/button";
 
 type Props = { productId: string };

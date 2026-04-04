@@ -31,6 +31,7 @@ function applyFilters(products: Product[], f: FilterState, q: string): Product[]
     if (f.sizes.length && !f.sizes.includes(p.size)) return false;
     if (f.brands.length && !f.brands.includes(p.brand)) return false;
     if (f.conditions.length && !f.conditions.includes(p.condition)) return false;
+    if (f.locations.length && !f.locations.includes(p.location)) return false;
     if (f.priceMin != null && p.price < f.priceMin) return false;
     if (f.priceMax != null && p.price > f.priceMax) return false;
     return true;
@@ -80,6 +81,10 @@ export function MarketplaceView() {
     () => [...new Set(mockProducts.map((p) => p.size))].sort(),
     [],
   );
+  const locations = useMemo(
+    () => [...new Set(mockProducts.map((p) => p.location))].sort(),
+    [],
+  );
 
   const filtered = useMemo(
     () => sortProducts(applyFilters(mockProducts, filters, search), sort),
@@ -88,12 +93,15 @@ export function MarketplaceView() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      <div className="mb-8">
-        <h1 className="font-display text-3xl tracking-tight text-stone-900 sm:text-4xl">
+      <div className="mb-8 rounded-2xl border border-[var(--va-border)] bg-[color-mix(in_srgb,var(--va-surface)_92%,var(--va-mint-subtle))] px-5 py-6 shadow-[0_4px_24px_rgba(46,125,50,0.06)] sm:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--va-primary)]">
+          Vinted Algeria
+        </p>
+        <h1 className="mt-1 font-display text-3xl font-extrabold tracking-tight text-[var(--va-ink)] sm:text-4xl">
           Marketplace
         </h1>
-        <p className="mt-2 max-w-xl text-sm text-muted">
-          Filter by fit, brand, and budget. All listings are mock data for this demo.
+        <p className="mt-2 max-w-xl text-sm text-[var(--va-ink-muted)]">
+          Filter by city, brand, size, and budget — demo listings only.
         </p>
       </div>
 
@@ -134,6 +142,7 @@ export function MarketplaceView() {
           <FilterSidebar
             brands={brands}
             sizes={sizes}
+            locations={locations}
             value={filters}
             onChange={setFilters}
           />

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useFavorites } from "@/hooks/use-favorites";
+import { useFavorites } from "@/components/providers/favorites-context";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/types";
 
@@ -14,7 +14,7 @@ export function ProductCard({ product }: Props) {
   const cover = product.images[0];
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+    <article className="va-card-brand group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--va-border)] bg-surface transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--va-primary)]/30 hover:shadow-[0_8px_30px_rgba(46,125,50,0.12)]">
       <Link href={`/product/${product.id}`} className="relative aspect-[4/5] overflow-hidden bg-stone-100">
         <Image
           src={cover}
@@ -54,7 +54,9 @@ export function ProductCard({ product }: Props) {
             {product.title}
           </h3>
         </Link>
-        <p className="text-xs text-muted">{product.brand} · {product.size}</p>
+        <p className="text-xs text-muted">
+          {product.brand} · {product.size} · {product.location}
+        </p>
         <p className="mt-auto pt-2 text-base font-semibold text-stone-900">
           {formatPrice(product.price, product.currency)}
         </p>

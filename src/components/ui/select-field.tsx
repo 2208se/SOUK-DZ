@@ -21,7 +21,7 @@ export function SelectField({
       ) : null}
       <select
         id={sid}
-        className={`w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground shadow-sm transition-shadow focus:border-accent focus:outline-none focus:ring-2 focus:ring-ring/40 ${className}`}
+        className={`w-full rounded-xl border border-[var(--va-border)] bg-surface px-4 py-2.5 text-sm text-foreground shadow-sm transition-shadow focus:border-[var(--va-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--va-ring)]/50 ${className}`}
         {...props}
       >
         {children}

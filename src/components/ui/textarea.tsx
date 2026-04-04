@@ -16,7 +16,7 @@ export function Textarea({ label, hint, id, className = "", ...props }: Props) {
       ) : null}
       <textarea
         id={tid}
-        className={`min-h-[120px] w-full resize-y rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground shadow-sm transition-shadow placeholder:text-stone-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-ring/40 ${className}`}
+        className={`min-h-[120px] w-full resize-y rounded-xl border border-[var(--va-border)] bg-surface px-4 py-2.5 text-sm text-foreground shadow-sm transition-shadow placeholder:text-stone-400 focus:border-[var(--va-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--va-ring)]/50 ${className}`}
         {...props}
       />
       {hint ? <p className="text-xs text-muted">{hint}</p> : null}

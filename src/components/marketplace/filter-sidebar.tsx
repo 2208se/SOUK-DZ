@@ -8,6 +8,7 @@ export type FilterState = {
   sizes: string[];
   brands: string[];
   conditions: ProductCondition[];
+  locations: string[];
   priceMin: number | null;
   priceMax: number | null;
 };
@@ -17,6 +18,7 @@ const defaultFilters: FilterState = {
   sizes: [],
   brands: [],
   conditions: [],
+  locations: [],
   priceMin: null,
   priceMax: null,
 };
@@ -24,6 +26,7 @@ const defaultFilters: FilterState = {
 type Props = {
   brands: string[];
   sizes: string[];
+  locations: string[];
   value: FilterState;
   onChange: (next: FilterState) => void;
 };
@@ -35,13 +38,13 @@ function toggleArray<T extends string>(arr: T[], item: T): T[] {
   return arr.includes(item) ? arr.filter((x) => x !== item) : [...arr, item];
 }
 
-export function FilterSidebar({ brands, sizes, value, onChange }: Props) {
+export function FilterSidebar({ brands, sizes, locations, value, onChange }: Props) {
   const reset = () => onChange({ ...defaultFilters });
 
   return (
-    <aside className="flex flex-col gap-8 rounded-2xl border border-border bg-surface p-5 shadow-sm">
+    <aside className="va-card-brand flex flex-col gap-8 rounded-2xl border border-[var(--va-border)] bg-surface p-5">
       <div className="flex items-center justify-between gap-2">
-        <h2 className="font-display text-lg text-stone-900">Filters</h2>
+        <h2 className="font-display text-lg font-bold text-[var(--va-ink)]">Filters</h2>
         <button
           type="button"
           onClick={reset}
@@ -94,7 +97,7 @@ export function FilterSidebar({ brands, sizes, value, onChange }: Props) {
                 }
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                   on
-                    ? "border-accent bg-teal-50 text-accent"
+                    ? "border-accent bg-green-50 text-accent"
                     : "border-border bg-background text-stone-600 hover:border-stone-300"
                 }`}
               >
@@ -124,6 +127,30 @@ export function FilterSidebar({ brands, sizes, value, onChange }: Props) {
                 className="h-4 w-4 rounded border-stone-300 text-accent focus:ring-ring"
               />
               {b}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="space-y-2">
+        <legend className="text-xs font-semibold uppercase tracking-wider text-stone-500">
+          Location
+        </legend>
+        <div className="flex max-h-36 flex-col gap-2 overflow-y-auto pr-1">
+          {locations.map((loc) => (
+            <label key={loc} className="flex cursor-pointer items-center gap-2 text-sm text-stone-700">
+              <input
+                type="checkbox"
+                checked={value.locations.includes(loc)}
+                onChange={() =>
+                  onChange({
+                    ...value,
+                    locations: toggleArray(value.locations, loc),
+                  })
+                }
+                className="h-4 w-4 rounded border-stone-300 text-accent focus:ring-ring"
+              />
+              {loc}
             </label>
           ))}
         </div>
