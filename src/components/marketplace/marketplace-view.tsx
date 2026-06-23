@@ -95,7 +95,7 @@ export function MarketplaceView() {
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
       <div className="mb-8 rounded-2xl border border-[var(--va-border)] bg-[color-mix(in_srgb,var(--va-surface)_92%,var(--va-mint-subtle))] px-5 py-6 shadow-[0_4px_24px_rgba(46,125,50,0.06)] sm:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--va-primary)]">
-          Vinted Algeria
+          SOUKDZ
         </p>
         <h1 className="mt-1 font-display text-3xl font-extrabold tracking-tight text-[var(--va-ink)] sm:text-4xl">
           Marketplace
