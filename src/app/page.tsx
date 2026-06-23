@@ -83,7 +83,7 @@ export default function HomePage() {
           <div className="flex-1">
             <p className="inline-flex items-center gap-2 rounded-full border border-[var(--va-border-strong)] bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--va-primary-deep)] shadow-sm backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--va-amber)]" aria-hidden />
-              Algeria · Second-hand fashion
+              SOUKDZ  · Second-hand fashion
             </p>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-[var(--va-ink)] sm:text-5xl lg:text-[3.35rem]">
               Your circular closet,{" "}
@@ -129,7 +129,7 @@ export default function HomePage() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-[var(--va-primary)]">
-              Vinted Algeria picks
+              SOUKDZ picks
             </p>
             <h2 className="mt-1 font-display text-2xl font-bold text-[var(--va-ink)] sm:text-3xl">
               Featured picks
@@ -174,7 +174,7 @@ export default function HomePage() {
           Why choose us
         </p>
         <h2 className="mt-1 font-display text-2xl font-bold text-[var(--va-ink)] sm:text-3xl">
-          The Vinted Algeria community
+          The SOUKDZ community
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
