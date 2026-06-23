@@ -88,8 +88,8 @@ export function LogoWordmark({ className = "", variant = "default" }: LogoProps)
   return (
     <span className={`inline-flex flex-col leading-none ${className}`}>
       <span className="font-display text-lg font-extrabold tracking-tight sm:text-xl">
-        <span className={isLight ? "text-[#c8e6c9]" : "text-[var(--va-primary)]"}>Vinted</span>
-        <span className={isLight ? "text-white" : " text-[var(--va-ink)]"}> Algeria</span>
+        <span className={isLight ? "text-[#c8e6c9]" : "text-[var(--va-primary)]"}>SOUKDZ</span>
+        <span className={isLight ? "text-white" : " text-[var(--va-ink)]"}> </span>
       </span>
       <span
         className={`mt-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] ${
